@@ -2,7 +2,7 @@ package com.coolweather.android.util;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-
+//Getting data from services.
 public class HttpUtil {
 
     public static void sendOkHttpRequest(String address, okhttp3.Callback callback) {

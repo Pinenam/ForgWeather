@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class Utility {
 
     /**
-     * 解析和处理服务器返回的省级数据
+     * Analyze and deal the data of provinces from service.
      */
     public static boolean handleProvinceResponse(String response) {
         if (!TextUtils.isEmpty(response)) {
@@ -37,7 +37,7 @@ public class Utility {
     }
 
     /**
-     * 解析和处理服务器返回的市级数据
+     *  Analyze and deal the data of Cities from service.
      */
     public static boolean handleCityResponse(String response, int provinceId) {
         if (!TextUtils.isEmpty(response)) {
@@ -60,7 +60,7 @@ public class Utility {
     }
 
     /**
-     * 解析和处理服务器返回的县级数据
+     *  Analyze and deal the data of counties from service.
      */
     public static boolean handleCountyResponse(String response, int cityId) {
         if (!TextUtils.isEmpty(response)) {
@@ -83,7 +83,7 @@ public class Utility {
     }
 
     /**
-     * 将返回的JSON数据解析成Weather实体类
+     * Analyze the JSON data to Weather real class.
      */
     public static Weather handleWeatherResponse(String response) {
         try {
