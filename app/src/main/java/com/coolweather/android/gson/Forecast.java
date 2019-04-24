@@ -1,7 +1,7 @@
 package com.coolweather.android.gson;
 
 import com.google.gson.annotations.SerializedName;
-
+//Defining the single day's entity weather class because the daily_forecast includes a array.
 public class Forecast {
 
     public String date;

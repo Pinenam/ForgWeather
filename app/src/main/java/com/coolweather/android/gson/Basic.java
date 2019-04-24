@@ -1,7 +1,7 @@
 package com.coolweather.android.gson;
 
 import com.google.gson.annotations.SerializedName;
-
+//Create the data entity.
 public class Basic {
 
     @SerializedName("city")
