@@ -70,13 +70,14 @@ public class WeatherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= 21) {
+            //use decorView.setSystemUivisbility to set UI background.
             View decorView = getWindow().getDecorView();
             decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                     | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
         setContentView(R.layout.activity_weather);
-        // 初始化各控件
+        // init the controls
         bingPicImg = (ImageView) findViewById(R.id.bing_pic_img);
         weatherLayout = (ScrollView) findViewById(R.id.weather_layout);
         titleCity = (TextView) findViewById(R.id.title_city);
@@ -96,12 +97,12 @@ public class WeatherActivity extends AppCompatActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String weatherString = prefs.getString("weather", null);
         if (weatherString != null) {
-            // 有缓存时直接解析天气数据
+            // Just analyze data when the cache exist.
             Weather weather = Utility.handleWeatherResponse(weatherString);
             mWeatherId = weather.basic.weatherId;
             showWeatherInfo(weather);
         } else {
-            // 无缓存时去服务器查询天气
+            // Requiring data from service when the cache is null
             mWeatherId = getIntent().getStringExtra("weather_id");
             weatherLayout.setVisibility(View.INVISIBLE);
             requestWeather(mWeatherId);
@@ -127,7 +128,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     /**
-     * 根据天气id请求城市天气信息。
+     * Ask for weather data accroding by cities id。
      */
     public void requestWeather(final String weatherId) {
         String weatherUrl = "http://guolin.tech/api/weather?cityid=" + weatherId + "&key=bc0418b57b2d4918819d3974ac1285d9";
@@ -169,7 +170,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     /**
-     * 加载必应每日一图
+     * Load Biying's daily picture.
      */
     private void loadBingPic() {
         String requestBingPic = "http://guolin.tech/api/bing_pic";
@@ -196,7 +197,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     /**
-     * 处理并展示Weather实体类中的数据。
+     * Dealing and displaying the data of entity class。
      */
     private void showWeatherInfo(Weather weather) {
         String cityName = weather.basic.cityName;

@@ -54,32 +54,32 @@ public class ChooseAreaFragment extends Fragment {
     private List<String> dataList = new ArrayList<>();
 
     /**
-     * 省列表
+     * provinces list
      */
     private List<Province> provinceList;
 
     /**
-     * 市列表
+     * cities list
      */
     private List<City> cityList;
 
     /**
-     * 县列表
+     * counties list
      */
     private List<County> countyList;
 
     /**
-     * 选中的省份
+     * selected province
      */
     private Province selectedProvince;
 
     /**
-     * 选中的城市
+     * selected cities
      */
     private City selectedCity;
 
     /**
-     * 当前选中的级别
+     * selected level
      */
     private int currentLevel;
 
@@ -137,9 +137,6 @@ public class ChooseAreaFragment extends Fragment {
         queryProvinces();
     }
 
-    /**
-     * 查询全国所有的省，优先从数据库查询，如果没有查询到再去服务器上查询。
-     */
     private void queryProvinces() {
         titleText.setText("中国");
         backButton.setVisibility(View.GONE);
@@ -159,7 +156,7 @@ public class ChooseAreaFragment extends Fragment {
     }
 
     /**
-     * 查询选中省内所有的市，优先从数据库查询，如果没有查询到再去服务器上查询。
+     * require data。
      */
     private void queryCities() {
         titleText.setText(selectedProvince.getProvinceName());
@@ -180,9 +177,7 @@ public class ChooseAreaFragment extends Fragment {
         }
     }
 
-    /**
-     * 查询选中市内所有的县，优先从数据库查询，如果没有查询到再去服务器上查询。
-     */
+
     private void queryCounties() {
         titleText.setText(selectedCity.getCityName());
         backButton.setVisibility(View.VISIBLE);
@@ -203,9 +198,7 @@ public class ChooseAreaFragment extends Fragment {
         }
     }
 
-    /**
-     * 根据传入的地址和类型从服务器上查询省市县数据。
-     */
+
     private void queryFromServer(String address, final String type) {
         showProgressDialog();
         HttpUtil.sendOkHttpRequest(address, new Callback() {
@@ -252,7 +245,7 @@ public class ChooseAreaFragment extends Fragment {
     }
 
     /**
-     * 显示进度对话框
+     * Display the talking view
      */
     private void showProgressDialog() {
         if (progressDialog == null) {
@@ -264,7 +257,7 @@ public class ChooseAreaFragment extends Fragment {
     }
 
     /**
-     * 关闭进度对话框
+     * Close the process-taking view
      */
     private void closeProgressDialog() {
         if (progressDialog != null) {

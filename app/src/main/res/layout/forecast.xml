@@ -15,7 +15,7 @@
         android:text="预报"
         android:textColor="#fff"
         android:textSize="20sp"/>
-
+    <!--No content in this LinearLayout because the data sat as dynamic state-->
     <LinearLayout
         android:id="@+id/forecast_layout"
         android:orientation="vertical"

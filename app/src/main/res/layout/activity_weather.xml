@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--All the weather information will be displayed on this view.
+This is a very long layout XML and in order to make sure the codes keep clear,I decide to put different parts of view into different XML-->
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
-
+<!--Use this to get biying's daily picture-->
     <ImageView
         android:id="@+id/bing_pic_img"
         android:layout_width="match_parent"
@@ -27,7 +29,7 @@
                 android:layout_height="match_parent"
                 android:scrollbars="none"
                 android:overScrollMode="never">
-
+<!--Calling other layout.-->
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
